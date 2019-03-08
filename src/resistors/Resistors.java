@@ -22,91 +22,86 @@ public class Resistors {
      */
     
     public static void main(String[] args) {
-        //Create an arraylist for the colour string for further use
-        ArrayList <String> code = new ArrayList <String> ();
-        code.add("Black");
-        code.add("Brown");
-        code.add("Red");
-        code.add("White");
-        code.add("Orange");
-        code.add("Yellow");
-        code.add("Green");
-        code.add("Blue");
-        code.add("Violet");
-        code.add("Grey");
-        
-        //Create an arraylist for the the number that attch to the colour for further use
-        ArrayList <String> number = new ArrayList <String> ();
-        number.add("0");
-        number.add("1");
-        number.add("2");
-        number.add("9");
-        number.add("3");
-        number.add("4");
-        number.add("5");
-        number.add("6");
-        number.add("7");
-        number.add("8");
+        String colour [] = new String [10];
+        colour [0] = "Black";
+        colour [1] = "Brown";
+        colour [2] = "Red";
+        colour [3] = "Orange";
+        colour [4] = "Yellow";
+        colour [5] = "Green";
+        colour [6] = "Blue";
+        colour [7] = "Viloet";
+        colour [8] = "Grey";
+        colour [9] = "White";
         
         //Ask user for an input
         String codeEnter = JOptionPane.showInputDialog("What is your resistors colour code?"
                 + "\nSeparate each colour by hyphens\nEx:Red-Orange-Black");
         
         //Split the input into single word and store them in array
-        String colour[] = codeEnter.split("-");
-        //System.out.print(colour[0] + "\n" + colour[1] +"\n" + colour[2]);
+        String input[] = codeEnter.split("-");
         
         //Declaring int variables and initialize them
-        int one = 0;    //Variable for the number attach to the first colour
-        int two = 0;    //Variable for the number attach to the second clour
-        int three = 0;  //Variable for the number attach to the third colour
-        
+        int one = 10;    //Variable for the number attach to the first colour
+        int two = 10;    //Variable for the number attach to the second clour
+        int three = 10;  //Variable for the number attach to the third colour
         
         // Compare the colour at first position from the "colour" array to the 
         // "colour" arraylist and attach number for the varible for the first number
-        for (int i = 0; i < code.size(); i++)
+        for (int i = 0; i < colour.length; i++)
         {
-           if (colour[0].equalsIgnoreCase(code.get(i)))
+            if (input[0].equalsIgnoreCase(colour[i]))
            {
-              System.out.println(colour[0]);
-              one = Integer.parseInt(number.get(i));
-              System.out.println(one);
-           }
+                one = i;
+            }
+                while (one != 10)
+               {
+                    break;
+                }
         }
         
         // Compare the colour at second position from the "colour" array to the 
         // "colour" arraylist and attach number for the varible for the second number
-        for (int k = 0; k < code.size(); k ++)
+        for (int k = 0; k < colour.length; k ++)
         {
-             if (colour[1].equalsIgnoreCase(code.get(k)))
+             if (input[1].equalsIgnoreCase(colour[k]))
            {
-               System.out.println(colour[1]);
-               two = Integer.parseInt(number.get(k));
-               System.out.println(two);
+               two = k;
            }
+              while (two != 10)
+                    {
+                        break;
+                    }
         }
         
         // Compare the colour at third position from the "colour" array to the 
         // "colour" arraylist and attach number for the varible for the third number
-        for (int m = 0; m < code.size(); m++)
+        for (int m = 0; m < colour.length; m++)
         {
-                    if(colour[2].equalsIgnoreCase((code.get(m))))
+             if(input[2].equalsIgnoreCase((colour[m])))
             {
-               System.out.println(colour[2]);
-               three = Integer.parseInt(number.get(m));
-               System.out.println(three);
+               three = m;
             }
-        }
+              while (three != 10)
+                    {
+                        break;
+                    }
+    }
         
         //Declare variable and calculate the total ohms of the resistor
         double value = Math.pow(one * two, three);
-        System.out.println(value);
         
-        //Display the result to the user
-        JOptionPane.showMessageDialog(null ,"The value of the "
+         if (one == 10 || two == 10 || three == 10)
+        {
+            JOptionPane.showMessageDialog(null,"Please Enter A Vaild Colour!");
+        }
+         else
+         {
+             //Display the result to the user
+            JOptionPane.showMessageDialog(null ,"The value of the "
                  + "resistors is " + value + " ohms.");
-       
-         
+         }
+      
     }
     
 }
