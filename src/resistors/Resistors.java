@@ -55,9 +55,9 @@ public class Resistors {
                 one = i;
             }
                 while (one != 10)
-               {
-                    break;
-                }
+                    {
+                        break;
+                    }
         }
         
         // Compare the colour at second position from the "colour" array to the 
